@@ -15,10 +15,13 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
+    "parser": "babel-eslint",
     "plugins": [
         "react"
     ],
     "rules": {
-        "semi": ["error", "never"]
+        "semi": ["error", "never"],
+        "no-param-reassign": "off",
+        "no-useless-constructor": "off"
     }
 }
