@@ -21,7 +21,6 @@
     ],
     "rules": {
         "semi": ["error", "never"],
-        "no-param-reassign": "off",
-        "no-useless-constructor": "off"
+        "func-names": "off"
     }
 }

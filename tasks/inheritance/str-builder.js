@@ -1,15 +1,6 @@
 const BaseBuilder = require('./base-builder.js')
 
 class StrBuilder extends BaseBuilder {
-  constructor(str) {
-    super(str)
-  }
-
-  plus = (...str) => {
-    this.value += [...str].join('')
-    return this
-  }
-
   minus = (n) => {
     this.value = this.value.split('')
       .splice(0, this.value.length - n)

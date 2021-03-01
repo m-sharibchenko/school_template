@@ -7,9 +7,10 @@ BaseBuilder.prototype.get = function () {
 }
 
 BaseBuilder.prototype.plus = function (...n) {
-  this.value = [...n].reduce((previousValue, currentValue) => {
-    previousValue += currentValue
-    return previousValue
+  this.value = n.reduce((total, value) => {
+    let acc = total
+    acc += value
+    return acc
   }, this.value)
   return this
 }
