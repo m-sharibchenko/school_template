@@ -11,7 +11,7 @@ const windDirection = document.querySelector('.wind-direction')
 const windSpeed = document.querySelector('.wind-speed')
 const pressure = document.querySelector('.pressure')
 
-const point = {
+const startLocation = {
   city: 'Minsk',
   country: 'Belarus',
 }
@@ -58,10 +58,10 @@ function setBackgroundImg(prop, place) {
   }
 }
 
-async function getWeather() {
+async function getWeather(cityName, countryName) {
   const response = await fetch('http://api.weatherstack.com/current'
     + '?access_key=13cec5d636a0fbdb15c0f98d61ad1451'
-    + `&query=${point.city}, ${point.country}`)
+    + `&query=${cityName}, ${countryName}`)
   let data
   try {
     data = response.json()
@@ -72,8 +72,8 @@ async function getWeather() {
   return data
 }
 
-async function showWeather() {
-  const result = await getWeather()
+async function showWeather(cityName, countryName) {
+  const result = await getWeather(cityName, countryName)
   if (result !== null) {
     locationName.textContent = `${result.location.name}, ${result.location.country}`
     temperature.textContent = `${result.current.temperature}°C`
@@ -87,13 +87,11 @@ async function showWeather() {
 }
 
 window.onload = () => {
-  showWeather()
+  showWeather(startLocation.city, startLocation.country)
 }
 
 form.addEventListener('submit', (evt) => {
   evt.preventDefault()
-  point.city = city.value
-  point.country = country.value
-  showWeather()
+  showWeather(city.value, country.value)
   form.reset()
 })
