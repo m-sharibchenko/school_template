@@ -63,7 +63,7 @@ class DoubleLinkedList {
       }
       currentNode = currentNode.next
     }
-    return 'there is no node'
+    return null
   }
 
   addAfter(value, parent) {
@@ -113,7 +113,7 @@ class DoubleLinkedList {
           default: currentNode = currentNode.next
         }
       }
-    } return 'there is nothing to delete'
+    } return null
   }
 }
 
@@ -126,7 +126,7 @@ dll.traverse(false)
 dll.head()
 dll.tail()
 
-const parentNode = dll.getNode('six')
+const parentNode = dll.getNode('one')
 dll.addAfter('ten', parentNode)
 dll.traverse()
 
