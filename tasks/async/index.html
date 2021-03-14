@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current weather</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<main class="main-content">
+    <form class="form" name="form">
+        <label class="form__label">
+            <input type="text" name="city" class="form__input city" placeholder="Enter your city here...">
+        </label>
+
+        <label class="form__label">
+            <input type="text" name="city" class="form__input country" placeholder="Enter your country here...">
+        </label>
+
+        <button type="submit" class="form__btn-submit">Check the weather</button>
+    </form>
+
+    <div class="location">Location</div>
+
+    <div class="info-about-weather">
+        <div class="main-info">
+            <div class="temperature">Temperature</div>
+            <div class="weather-description">Description</div>
+            <div class="feels-like">Feels like</div>
+        </div>
+
+        <ul class="other-info">
+            <li>
+                <div class="other-info__title">Wind direction</div>
+                <div class="wind-direction">Wind direction</div>
+            </li>
+
+            <li>
+                <div class="other-info__title">Wind speed</div>
+                <div class="wind-speed">Wind speed</div>
+            </li>
+
+            <li>
+                <div class="other-info__title">Pressure</div>
+                <div class="pressure">Pressure</div>
+            </li>
+        </ul>
+    </div>
+</main>
+
+<footer class="footer">
+    <q>Wherever you go, no matter what the weather, always bring your own sunshine.</q>
+</footer>
+
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
