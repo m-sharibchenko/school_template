@@ -26,5 +26,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # Enable linters
           eslint: true
-          eslint_extensions: modules,jsx
+          eslint_extensions: js,jsx
           continue_on_error: false
