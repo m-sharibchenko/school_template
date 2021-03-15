@@ -36,23 +36,17 @@ class DoubleLinkedList {
 
   traverse(order = true) {
     let currentNode = this.#head
-    let forwardStr = `${currentNode.data}`
-    if (order) {
-      while (currentNode.next) {
-        currentNode = currentNode.next
-        forwardStr += ` -> ${currentNode.data}`
-      }
-      return forwardStr
-    }
+    const array = [currentNode.data]
     while (currentNode.next) {
       currentNode = currentNode.next
+      array.push(currentNode.data)
     }
-    let reverseStr = `${currentNode.data}`
-    while (currentNode.previous) {
-      currentNode = currentNode.previous
-      reverseStr += ` -> ${currentNode.data}`
-    }
-    return reverseStr
+    let str
+    if (order) {
+      str = array.join(' -> ')
+    } else {
+      str = array.reverse().join(' -> ')
+    } return str
   }
 
   getNode(value) {

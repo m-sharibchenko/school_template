@@ -14,15 +14,15 @@ class BinarySearchTree {
   insertTo(point, node) {
     const currentNode = point
     if (node.key < currentNode.key) {
-      if (currentNode.right != null) {
-        this.insertTo(currentNode.right, node)
-      } else {
-        currentNode.right = node
-      }
-    } else {
       if (currentNode.left != null) {
         this.insertTo(currentNode.left, node)
-      } currentNode.left = node
+      } else {
+        currentNode.left = node
+      }
+    } else {
+      if (currentNode.right != null) {
+        this.insertTo(currentNode.right, node)
+      } currentNode.right = node
     }
   }
 
@@ -40,13 +40,13 @@ class BinarySearchTree {
   searchNode(node, key) {
     const currentNode = node
     if (key < currentNode.key) {
-      return this.searchNode(currentNode.right, key)
+      return this.searchNode(currentNode.left, key)
     }
     if (currentNode.key === key) {
       return currentNode.data
     }
 
-    return this.searchNode(currentNode.left, key)
+    return this.searchNode(currentNode.right, key)
   }
 
   search(key) {
@@ -57,31 +57,57 @@ class BinarySearchTree {
     return this.searchNode(currentNode, key)
   }
 
-  deleteNode(node, key) {
-    const currentNode = node
-    if (key < currentNode.key) {
-      if (currentNode.right.key === key) {
-        currentNode.right = null
-        return this
-      }
-
-      return this.deleteNode(currentNode.right, key)
+  static findMinKey(node) {
+    let currentNode = node
+    while (currentNode.left) {
+      currentNode = currentNode.left
     }
-    if (currentNode.left.key === key) {
-      currentNode.left = null
-      return this
-    }
-
-    return this.deleteNode(currentNode.left, key)
+    return currentNode
   }
 
   delete(key) {
     let currentNode = this.#head
-    if (currentNode.key === key) {
-      currentNode = null
-      return this
+    let parentNode
+    while (currentNode && currentNode.key !== key) {
+      parentNode = currentNode
+      if (key < currentNode.key) {
+        currentNode = currentNode.left
+      } else {
+        currentNode = currentNode.right
+      }
     }
-    return this.deleteNode(currentNode, key)
+
+    if (!currentNode.left && !currentNode.right) {
+      if (parentNode.left && parentNode.left.key === key) {
+        parentNode.left = null
+      } else {
+        parentNode.right = null
+      }
+    } else if (currentNode.left && currentNode.right) {
+      const nodeToReplace = BinarySearchTree.findMinKey(currentNode.right)
+
+      this.delete(nodeToReplace.key)
+
+      currentNode.key = nodeToReplace.key
+      currentNode.data = nodeToReplace.data
+    } else {
+      let childNode
+      if (currentNode.left) {
+        childNode = currentNode.left
+      } else {
+        childNode = currentNode.right
+      }
+
+      if (!parentNode) {
+        this.#head = childNode
+      } else if (parentNode.left.key === key) {
+        parentNode.left = childNode
+      } else {
+        parentNode.right = childNode
+      }
+    }
+
+    return this
   }
 
   findValue(currentNode, value) {
@@ -93,7 +119,7 @@ class BinarySearchTree {
     if (currentNode.right) {
       resultRight = this.findValue(currentNode.right, value)
     }
-    if (currentNode.left) {
+    if (!resultRight && currentNode.left) {
       resultLeft = this.findValue(currentNode.left, value)
     }
 
