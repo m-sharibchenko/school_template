@@ -28,6 +28,4 @@ async function onCallSearch(location) {
   renderWeather(root, data)
 }
 
-window.onload = () => {
-  renderSearch(root, onCallSearch)
-}
+renderSearch(root, onCallSearch)
