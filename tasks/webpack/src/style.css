@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'Assistant';
+  src: url('./fonts/Assistant-Regular.ttf') format('ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Assistant';
+  src: url('./fonts/Assistant-Bold.ttf') format('ttf');
+  font-weight: 600;
+}
+
+body {
+  background-color: #ebf3f3;
+  font-family: 'Assistant', sans-serif;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  color: #6f6f72;
+  margin-bottom: 20px;
+}

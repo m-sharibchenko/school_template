@@ -1,0 +1,60 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.location {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.info-about-weather {
+  border-radius: 20px;
+  border: 10px solid #FFFFFF;
+  box-shadow: #FFFFFF 0 0 10px;
+  padding: 10px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 500px;
+  min-width: 900px;
+  color: #FFFFFF;
+  background: url("./img/main-background.jpg"), #b1b1b1;
+  background-blend-mode: multiply;
+  background-size: 100%;
+  margin-bottom: 30px;
+}
+
+.main-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.temperature {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.weather-description {
+  font-size: 28px;
+}
+
+.feels-like {
+  font-size: 32px;
+}
+
+.other-info {
+  display: flex;
+  align-items: center;
+}
+
+.other-info__title {
+  font-size: 20px;
+}
+
+.wind-direction, .wind-speed, .pressure{
+  font-size: 28px;
+}
