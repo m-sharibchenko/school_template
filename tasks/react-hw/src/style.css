@@ -1,0 +1,44 @@
+.wrapper {
+  min-height: 500px;
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Stopwatch{
+  margin-bottom: 10px;
+  font-size: 26px;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  min-width: 300px;
+  min-height: 30px;
+}
+
+button {
+  min-width: 70px;
+  min-height: 25px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.btn-start {
+  margin-right: 5px;
+  background-color: #61dafb;
+  border: none;
+}
+
+.btn-stop, .btn-reset {
+  margin-right: 5px;
+}
+
+button:hover,
+button:focus,
+button:active {
+  cursor: pointer;
+}
