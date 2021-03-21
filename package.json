@@ -9,7 +9,6 @@
     "lint:fix": "eslint '**/*.{js,jsx}' --fix",
     "postinstall": "husky install"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.8",
     "babel-eslint": "^10.1.0",
