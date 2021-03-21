@@ -24,5 +24,11 @@
   },
   "lint-staged": {
     "*.{js,jsx}": "eslint --fix"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   }
 }
