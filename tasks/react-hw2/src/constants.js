@@ -1,4 +1,4 @@
-export const currencyArray = ['AUD', 'BGN', 'BRL', 'CAD', 'CHF', 'CNY', 'CZK',
-  'DKK', 'EUR', 'GBP', 'HKD', 'HRK', 'HUF', 'IDR', 'ILS', 'INR', 'ISK',
-  'JPY', 'KRW', 'MXN', 'MYR', 'NOK', 'NZD', 'PHP', 'PLN', 'RON', 'RUB',
-  'SEK', 'SGD', 'THB', 'TRY', 'USD', 'ZAR']
+export const currencyArray = ["AED", "AUD", "BTC", "BYN",  "CHF", "CNY", "CZK", "EGP",
+  "EUR", "GBP", "GNF", "HKD", "IDR", "INR", "JPY", "KPW", "KRW", "KZT", "LKR", "MKD",
+  "MXN", "NOK", "NZD", "PHP", "PLN", "QAR", "RSD", "RUB", "SCR", "SOS", "TJS", "TWD",
+  "UAH", "USD", "VES", "YER", "ZAR", "ZWL"]

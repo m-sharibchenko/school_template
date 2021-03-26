@@ -2,12 +2,17 @@ import { Title } from '../Title';
 import { ExchangeInput } from '../Currency-input';
 import { Chart } from '../Chart';
 import './style.css';
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { currencyArray } from '../../constants'
 
+// async function getExchangeRate(from, to) {
+//   const response = await fetch('https://openexchangerates.org/api/latest.json' +
+//     '?app_id=3f7ea2e7a78e46cbb1a1c5c6c546b015' +
+//     `&base=${from}` +
+//     `&symbols=${to}`)
+
 async function getExchangeRate(from) {
-  const response = await fetch('https://api.exchangeratesapi.io/latest' +
-    `?base=${from}`)
+  const response = await fetch(`https://api.exchangeratesapi.io/latest?base=${from}`)
   let result
   try {
     result = response.json()
@@ -19,8 +24,8 @@ async function getExchangeRate(from) {
 }
 
 async function tryExchange(value, from, to) {
+  // const data = await getExchangeRate(from, to)
   const data = await getExchangeRate(from)
-  console.log(data)
   if (value === '') {
     return '';
   }
