@@ -3,9 +3,11 @@ import './style.css';
 
 export function Title(props) {
   const {fromValue, fromCurrency, toValue, toCurrency} = props
+  
   return (
     <div className="Title">
-      {fromValue} {fromCurrency} equals {toValue} {toCurrency}
+      <span className="exchange-from">{fromValue} {fromCurrency} equals</span>
+      <span className="exchange-to">{toValue} {toCurrency}</span>
     </div>
   )
 }

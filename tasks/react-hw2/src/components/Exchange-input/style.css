@@ -1,0 +1,21 @@
+.ExchangeInput {
+  margin-bottom: 10px;
+
+  color: #6f6f72;
+}
+
+.value {
+  box-sizing: border-box;
+
+  min-width: 165px;
+  min-height: 30px;
+
+  margin-right: 10px;
+}
+
+.currency {
+  min-width: 80px;
+  min-height: 30px;
+
+  margin-right: 10px;
+}
