@@ -23,6 +23,20 @@ export function Exchange(props) {
     getData()
   }, [currencyOne, currencyTwo])
 
+  const setValueOne = async (e) => {
+    setValue({
+      one: e,
+      two: await tryExchange(e, currencyOne, currencyTwo)
+    })
+  }
+
+  const setValueTwo = async (e) => {
+    setValue({
+      one: await tryExchange(e, currencyTwo, currencyOne),
+      two: e
+    })
+  }
+
   return (
     <div className="Exchange">
       <div className="main-content">
@@ -36,23 +50,15 @@ export function Exchange(props) {
           value={value.one}
           currency={currencyOne}
           currencyArray={CURRENCY_ARRAY}
-          setValue={async (e) => {
-            setValue({
-              one: e,
-              two: await tryExchange(e, currencyOne, currencyTwo)
-            })
-          }}
-          setCurrency={(e) => {setCurrencyOne(e)}}
+          setValue={setValueOne}
+          setCurrency={setCurrencyOne}
         />
         <ExchangeInput
           value={value.two}
           currency={currencyTwo}
           currencyArray={CURRENCY_ARRAY}
-          setValue={async (e) => setValue({
-            one: await tryExchange(e, currencyTwo, currencyOne),
-            two: e
-          })}
-          setCurrency={(e) => {setCurrencyTwo(e)}}
+          setValue={setValueTwo}
+          setCurrency={setCurrencyTwo}
         />
       </div>
       <Chart
