@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
 import { createDataArray } from './get-data';
-import {findMinValue} from './find-min-value'
+import {findMinValue} from './find-min-value';
 import { Line } from '@ant-design/charts';
+import PropTypes from 'prop-types';
 
 export function Chart(props) {
   const [data, setData] = useState([])
@@ -36,4 +37,9 @@ export function Chart(props) {
   }
 
   return <Line {...config} />;
+}
+
+Chart.propTypes = {
+  fromCurrency: PropTypes.string,
+  toCurrency: PropTypes.string,
 }
