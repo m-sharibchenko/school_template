@@ -2,14 +2,17 @@ import { Title } from '../Title';
 import { ExchangeInput } from '../Exchange-input';
 import { Chart } from '../Chart';
 import './style.css';
-import React, { useState, useEffect } from 'react'
-import { CURRENCY_ARRAY } from '../../constants'
-import { tryExchange } from './get-data'
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { CURRENCY_ARRAY } from '../../constants';
+import { tryExchange } from './get-data';
 
 export function Exchange(props) {
+  const {pathCurrencyOne, pathCurrencyTwo} = props
+
   const [value, setValue] = useState({one: '1', two: ''})
-  const [currencyOne, setCurrencyOne] = useState( 'USD')
-  const [currencyTwo, setCurrencyTwo] = useState( 'EUR')
+  const [currencyOne, setCurrencyOne] = useState( pathCurrencyOne || 'USD')
+  const [currencyTwo, setCurrencyTwo] = useState( pathCurrencyTwo || 'EUR')
 
   useEffect(() => {
     async function getData() {
@@ -67,4 +70,10 @@ export function Exchange(props) {
       />
     </div>
   )
+}
+
+
+Exchange.propTypes = {
+  pathCurrencyOne: PropTypes.string,
+  pathCurrencyTwo: PropTypes.string,
 }
