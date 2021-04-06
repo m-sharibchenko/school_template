@@ -9,13 +9,14 @@ export function WidgetPaths(props) {
       <Route path={url} exact>
         <Exchange/>
       </Route>
-      <Route path={`${url}/:currencyOne/:currencyTwo`}>
-        {({match}) =>
+      <Route
+        path={`${url}/:currencyOne/:currencyTwo`}
+        render={({match}) =>
           <Exchange
             pathCurrencyOne={match.params.currencyOne.toUpperCase()}
             pathCurrencyTwo={match.params.currencyTwo.toUpperCase()}
-        />}
-      </Route>
+          />}
+      />
     </Switch>
   )
 }
